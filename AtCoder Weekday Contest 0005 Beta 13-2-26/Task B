@@ -1,0 +1,38 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+
+        int N = sc.nextInt();
+        int M = sc.nextInt(); 
+         int ans = 0;
+         int K=sc.nextInt();
+        long[] S = new long[N];
+          long[] V= new long[N];
+        for (int i = 0; i < N; i++) {
+            S[i] = sc.nextLong();
+                V[i] = S[i];
+        }
+        for(int j=0;j<M;j++)
+        {
+            int index=sc.nextInt();
+            long value=sc.nextLong();
+            V[index-1]=value;
+        }
+
+        for(int i=0;i<N;i++)
+        {
+            if(V[i]<K)
+            {
+                ans++;
+            }
+        }
+
+        
+        System.out.println(ans);
+        sc.close();
+    }
+}
