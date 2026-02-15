@@ -1,0 +1,57 @@
+import java.util.*;
+
+public class Main 
+{
+    static boolean check(long[] A,int N ,long K, long target)
+    {
+        long sum=0;
+        int count=0;
+        for(int i=0;i<N;i++)
+        {
+          sum+=A[i];
+            if(sum>=target)
+            {
+                count++;
+                sum=0;
+            }
+        }
+        return count>=K;
+    }
+    public static void main(String[] args) 
+    {
+        Scanner sc = new Scanner(System.in);
+
+        int N = sc.nextInt();
+        long K = sc.nextLong();
+        long[] A = new long[N];
+        long total=0;
+        for (int i = 0; i < N; i++) {
+            A[i] = sc.nextLong();
+        }
+
+
+        for (int i = 0; i < N; i++) 
+            {
+                 total+=A[i];
+            }
+        
+     long low=1;
+     long high=total;
+long ans=0;
+        while(low<=high)
+        {
+            long mid=high-(high-low)/2;
+           if (check(A,N,K,mid))
+           {
+            ans=mid;
+            low=mid+1;
+           }
+           else
+           {
+            high=mid-1;
+           }
+        }
+        System.out.println(ans);
+        sc.close();
+    }
+}
