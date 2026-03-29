@@ -1,0 +1,9 @@
+class Solution {
+    public boolean uniformArray(int[] nums1) 
+    {
+        int n=nums1.length;
+        if(nums1.length<=100)
+       return true;
+       return true;
+    }
+}
