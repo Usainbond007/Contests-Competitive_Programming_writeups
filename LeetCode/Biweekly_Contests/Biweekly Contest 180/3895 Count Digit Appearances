@@ -1,0 +1,32 @@
+class Solution {
+    public int countDigitOccurrences(int[] nums, int digit)
+    {
+        int count=0;
+        
+        for(int i=0;i<nums.length;i++)
+            {
+                count+=check(nums[i],digit);
+            }
+        return count;
+    }
+
+    public int check(int num,int c)
+    {
+                if (num==0 && c == 0) return 1;
+        int count=0;
+        while(num>0)
+            {
+                int rem=num%10;
+                if(c==rem)
+                    count++;
+                num=num/10;
+            }
+        return count;
+    }
+}
+/*
+
+ Essentially you have to just createa helper function which takes the elemtnt of the array as input and then extracts the digits and checks if it satsifies the value
+ and increments value accordingly
+
+*/
