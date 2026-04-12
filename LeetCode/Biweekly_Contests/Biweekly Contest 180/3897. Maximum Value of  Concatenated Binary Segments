@@ -1,0 +1,29 @@
+class Solution {
+    public int maxValue(int[] nums1, int[] nums0)
+    {
+        
+        String ch[]=new String[nums1.length];
+        for(int i=0;i<nums1.length;i++)
+            {
+                String s = "1".repeat(nums1[i]);
+                String b="0".repeat(nums0[i]);
+                String r=s+b;
+                ch[i]=r;
+            }
+        Arrays.sort(ch,(a,b)->(b+a).compareTo(a+b));
+        StringBuilder sb=new StringBuilder();
+        for (String s:ch)
+            {
+                sb.append(s);
+            }
+        long modulo=1_000_000_007;
+        long ans =0;
+        for (int i =0; i< sb.length(); i++) 
+        {
+            ans=(ans*2+(sb.charAt(i)-'0'))%modulo;
+        }
+        return (int)ans;
+    }
+}
+
+/* build the strings according to the constraints and then concatenate - then create a custom comparator for sorting -which gives a higher decimal value after concatenating all the strings
